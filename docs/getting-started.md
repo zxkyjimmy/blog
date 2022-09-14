@@ -1,14 +1,12 @@
 # VitePress部署在GitHub上
 
-## Getting Started
-
-### Requirements
+## Requirements
 
 - 下載安裝[Node.js](https://nodejs.org/en/)
 - 準備好[GitHub](http://github.com/)帳號
 - [VS Code](https://code.visualstudio.com)
 
-### Step. 1: Create a new repository
+## Step. 1: Create a new repository
 
 在GitHub上建立新的儲存庫，並設定為public，然後按下`Create repository`。
 
@@ -32,7 +30,7 @@ $ code .
 $ npm init -y
 ```
 
-### Step. 2: Install VitePress
+## Step. 2: Install VitePress
 
 利用npm安裝VitePress：
 
@@ -70,7 +68,7 @@ $ npm run dev
 ![](https://i.imgur.com/Cu5opfB.png)
 
 
-### Step 3. Configuration
+## Step 3. Configuration
 
 在`docs`資料夾中創建一個`.vitepress`資料夾，這是用來放置跟vitepress設置相關文件的地方。此時的架構大概是下面這個樣子：
 
@@ -99,7 +97,7 @@ export default config
 > 若想知道還有哪些設定可以調整，請參考[官網介紹](https://vitepress.vuejs.org/config/app-configs)
 > 另外，由於`config.js`是新建立的，所以如果要測試網頁的話，可能需要重新執行`npm run dev`
 
-### Step 4. Prettify home page
+## Step 4. Prettify home page
 
 添加新的頁面：
 
@@ -133,9 +131,9 @@ hero:
 
 ![](https://i.imgur.com/4zCIgy2.png)
 
-### Step 5. Deploy on GitHub
+## Step 5. Deploy on GitHub
 
-#### 設定base
+### 設定base
 
 由於GitHub幫我們Host(託管)的網站，會包含儲存庫的名稱，因此我們需要修改`config.js`來讓生成的網站連結正確：
 
@@ -157,7 +155,7 @@ export default config
 
 ![](https://i.imgur.com/mKAKGjr.png)
 
-#### 建立GitHub Actions
+### 建立GitHub Actions
 
 在`.github/workflows`中建立`deploy.yml`：
 > `-p`這個參數可以讓`mkdir`一次建立多層的資料夾
@@ -216,7 +214,7 @@ jobs:
 
 ```
 
-#### 忽視非必要記錄的檔案
+### 忽視非必要記錄的檔案
 
 創建`.gitignore`檔案，並把我們不想讓git管理的內容寫在裡面：
 > `node_modules`裏面儲存的是`npm install --dev vitepress vue`時下載下來的套件，底下一共有一千多個檔案，管理起來會太過臃腫。
@@ -229,7 +227,7 @@ node_modules
 dist
 ```
 
-#### 上傳到GitHub
+### 上傳到GitHub
 
 在上傳之前，先確認一下我們的資料夾有以下的東西：
 
@@ -276,8 +274,7 @@ dist
 ![](https://i.imgur.com/Fq6vCaq.png)
 
 
-#### 設定GitHub Pages的目標
-
+### 設定GitHub Pages的目標
 
 在儲存庫的`Settings`中找到`Pages`，並將`Branch`設定為`gh-pages`後按下`Save`：
 
