@@ -58,12 +58,17 @@ $ mkdir docs && echo '# Hello VitePress' > docs/index.md
 }
 ```
 
-跑跑看
+回到終端機執行下列指令來運行看看本地server：
+
 ```shell
 $ npm run dev
 ```
 
-用瀏覽器開`http://localhost:5173`，就能看到剛才建立的Hello VitePress
+如果出現底下的畫面表示成功，我們就不要動他，讓他持續幫我們運行這個本地server。
+
+![](https://i.imgur.com/XChtFCQ.png)
+
+接著用瀏覽器開啟`http://localhost:5173`，就能看到剛才建立的Hello VitePress
 
 ![](https://i.imgur.com/Cu5opfB.png)
 
@@ -95,6 +100,7 @@ const config = {
 export default config
 ```
 > 若想知道還有哪些設定可以調整，請參考[官網介紹](https://vitepress.vuejs.org/config/app-configs)
+
 > 另外，由於`config.js`是新建立的，所以如果要測試網頁的話，可能需要重新執行`npm run dev`
 
 ## Step 4. Prettify home page
@@ -137,7 +143,7 @@ hero:
 
 由於GitHub幫我們Host(託管)的網站，會包含儲存庫的名稱，因此我們需要修改`config.js`來讓生成的網站連結正確：
 
-```javascript
+```javascript{5}
 /**
  * @type {import('vitepress').UserConfig}
  */
@@ -217,15 +223,16 @@ jobs:
 ### 忽視非必要記錄的檔案
 
 創建`.gitignore`檔案，並把我們不想讓git管理的內容寫在裡面：
-> `node_modules`裏面儲存的是`npm install --dev vitepress vue`時下載下來的套件，底下一共有一千多個檔案，管理起來會太過臃腫。
-
-> `dist`是如果我們使用`npm run build`時會產生的網站資料夾。
 
 ```
 .vscode
 node_modules
 dist
 ```
+
+> `node_modules`裏面儲存的是`npm install --dev vitepress vue`時下載下來的套件，底下一共有一千多個檔案，管理起來會太過臃腫。
+
+> `dist`是如果我們使用`npm run build`時會產生的網站資料夾。
 
 ### 上傳到GitHub
 
